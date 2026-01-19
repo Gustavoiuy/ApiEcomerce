@@ -14,8 +14,5 @@ public class UserDto
 
     public string? Role { get; set; }
 
-    public static implicit operator UserDto(RegisterUserDto v)
-    {
-        throw new NotImplementedException();
-    }
+
 }

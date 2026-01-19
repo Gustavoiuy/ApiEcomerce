@@ -17,7 +17,7 @@ public class UserRepository : IUserRepository
 
     {
         _db = db;
-        secretKey = configuration.GetValue<string>("ApiSettings: SecretKey");
+        secretKey = configuration.GetValue<string>("ApiSettings:SecretKey");
     }
 
 

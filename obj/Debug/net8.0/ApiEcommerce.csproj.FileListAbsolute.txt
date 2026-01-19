@@ -140,3 +140,10 @@ d:\WEB2026\c#\ApiEcommerce\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstrac
 d:\WEB2026\c#\ApiEcommerce\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 d:\WEB2026\c#\ApiEcommerce\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
 d:\WEB2026\c#\ApiEcommerce\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+D:\WEB2026\c#\ApiEcommerce\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\WEB2026\c#\ApiEcommerce\obj\Debug\net8.0\ApiEcommerce.sourcelink.json
+D:\WEB2026\c#\ApiEcommerce\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\WEB2026\c#\ApiEcommerce\bin\Debug\net8.0\Asp.Versioning.Abstractions.dll
+D:\WEB2026\c#\ApiEcommerce\bin\Debug\net8.0\Asp.Versioning.Http.dll
+D:\WEB2026\c#\ApiEcommerce\bin\Debug\net8.0\Asp.Versioning.Mvc.dll
+D:\WEB2026\c#\ApiEcommerce\bin\Debug\net8.0\Asp.Versioning.Mvc.ApiExplorer.dll
