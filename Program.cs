@@ -1,21 +1,33 @@
 using System.Text;
 using ApiEcommerce.Constants;
+using ApiEcommerce.Data;
+using ApiEcommerce.Models;
 using ApiEcommerce.Repository;
 using ApiEcommerce.Repository.IRepository;
 using Asp.Versioning;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using Mapster;
+using ApiEcommerce.Maping;
 
 
 var builder = WebApplication.CreateBuilder(args);
 var dbConnectionString = builder.Configuration.GetConnectionString("ConexionSql");
 // Add services to the container.
 
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(dbConnectionString));
-
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+  options.UseSqlServer(dbConnectionString)
+  .UseSeeding((context, _) =>
+  {
+      var appContext = (ApplicationDbContext)context;
+      DataSeeder.SeedData(appContext);
+      appContext.SaveChanges();
+  })
+);
 builder.Services.AddResponseCaching(options =>
 {
     options.MaximumBodySize = 1024 * 1024;
@@ -26,10 +38,10 @@ builder.Services.AddResponseCaching(options =>
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddAutoMapper(cfg =>
-{
-    cfg.AddMaps(typeof(Program).Assembly);
-});
+MapsterConfig.RegisterMappings(TypeAdapterConfig.GlobalSettings);
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders();
 
 var secretKey = builder.Configuration.GetValue<string>("ApiSettings:SecretKey");
 if (string.IsNullOrEmpty(secretKey))
@@ -176,6 +188,8 @@ if (app.Environment.IsDevelopment())
   });
 
 }
+
+app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 

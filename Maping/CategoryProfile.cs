@@ -1,14 +1,1 @@
-using System;
-using ApiEcommerce.Models.Dtos;
-using AutoMapper;
-
-namespace ApiEcommerce.Maping;
-
-public class CategoryProfile : Profile
-{
-    public CategoryProfile()
-    {
-        CreateMap<Category, CategoryDto>().ReverseMap();
-        CreateMap<Category, CreateCategoryDto>().ReverseMap();
-    }
-}
+// AutoMapper profile removed - mappings are now configured in MapsterConfig
