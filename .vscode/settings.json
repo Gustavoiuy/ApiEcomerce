@@ -1,0 +1,5 @@
+{
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "bin\\Release\\net8.0\\publish",
+    "appService.defaultWebAppToDeploy": "/subscriptions/8bd46713-e3bd-4e21-8b99-0ed14f11ab59/resourceGroups/GrupoParaEcomerce/providers/Microsoft.Web/sites/apiecommercev1"
+}

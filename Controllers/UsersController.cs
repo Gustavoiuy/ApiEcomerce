@@ -11,7 +11,7 @@ namespace ApiEcommerce.Controllers
     [ApiController]
     [ApiVersion("1.0")]
     [ApiVersion("2.0")]
-    [Authorize(Roles = "admin")]
+    [Authorize(Roles = "Admin")]
     public class UsersController : ControllerBase
     {
         private readonly IUserRepository _userRepository;

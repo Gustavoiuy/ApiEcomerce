@@ -16,7 +16,7 @@ namespace ApiEcommerce.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.17")
+                .HasAnnotation("ProductVersion", "9.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -112,7 +112,7 @@ namespace ApiEcommerce.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("LegacyUsers");
                 });
 
             modelBuilder.Entity("ApiEcommerce.Models.Product", b =>

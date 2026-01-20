@@ -38,7 +38,7 @@ public class UserRepository : IUserRepository
 
     public bool IsuniqueUser(string username)
     {
-        return !_db.Users.Any(u => u.UserName.ToLower().Trim() == username.ToLower().Trim());
+        return !_db.LegacyUsers.Any(u => u.UserName.ToLower().Trim() == username.ToLower().Trim());
     }
 
     public async Task<UserLogginResponseDto> Login(UserLogginDto userLoginDto)
