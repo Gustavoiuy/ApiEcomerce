@@ -1,103 +1,99 @@
-# [Nombre de tu API de E-commerce]
+# 🛒 E-commerce API RESTful (.NET 8 + Azure)
 
-![.NET Core](https://img.shields.io/badge/.NET%20Core-8.0-purple) ![License](https://img.shields.io/badge/license-MIT-green) ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![.NET 8.0](https://img.shields.io/badge/.NET-8.0-512BD4?style=flat&logo=dotnet)
+![Azure App Service](https://img.shields.io/badge/Azure-App%20Service-0078D4?style=flat&logo=microsoftazure)
+![Azure SQL](https://img.shields.io/badge/Database-Azure%20SQL-0078D4?style=flat&logo=microsoftsqlserver)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=flat&logo=github)
+![Swagger](https://img.shields.io/badge/Swagger-UI-85EA2D?style=flat&logo=swagger)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-Esta es una API RESTful robusta y escalable diseñada para gestionar las operaciones de una plataforma de comercio electrónico. Proporciona servicios para la gestión de productos, autenticación de usuarios, carritos de compras y procesamiento de órdenes.
+> **🚀 Live Demo (Producción):** [https://apiecomercev1.azurewebsites.net/swagger](https://apiecomercev1.azurewebsites.net/swagger)
 
-## 🚀 Características Principales
+API RESTful escalable y de alto rendimiento diseñada para orquestar la lógica de negocio de una plataforma de comercio electrónico moderna. Este proyecto demuestra una implementación sólida de **Clean Architecture**, patrones de diseño empresarial y un flujo de trabajo **DevOps** automatizado en la nube de Microsoft Azure.
 
-* **Autenticación y Autorización:** Implementación segura usando **JWT (JSON Web Tokens)** y ASP.NET Identity. Roles para Administradores y Clientes.
-* **Catálogo de Productos:** CRUD completo de productos, categorías, inventario y filtrado avanzado.
-* **Gestión de Carrito:** Lógica para agregar, eliminar y actualizar items en el carrito de compras.
-* **Órdenes de Compra:** Creación y seguimiento de pedidos.
-* **Pasarela de Pagos:** Integración (o simulación) con [Stripe / PayPal / MercadoPago].
-* **Paginación y Filtrado:** Respuestas optimizadas para grandes volúmenes de datos.
-* **Documentación:** Swagger UI integrado para pruebas interactivas.
+---
 
-## 🛠️ Tecnologías Utilizadas
+## 🏛️ Arquitectura y Diseño de Software
 
-* **Framework:** ASP.NET Core [8.0 / 9.0]
-* **Lenguaje:** C#
+Este proyecto fue construido siguiendo principios de ingeniería de software para garantizar mantenibilidad, testabilidad y escalabilidad:
+
+* **Clean Architecture:** Separación estricta de responsabilidades (Domain, Application, Infrastructure, API).
+* **Repository Pattern:** Abstracción de la capa de acceso a datos.
+* **SOLID Principles:** Aplicados en el diseño de servicios y controladores.
+* **Entity Framework Core (Code First):** Gestión de base de datos mediante migraciones y modelos de dominio.
+* **Dependency Injection:** Uso del contenedor nativo de .NET para desacoplar componentes.
+
+## 🛠️ Tech Stack
+
+* **Lenguaje:** C# (.NET 8)
+* **Framework:** ASP.NET Core Web API
+* **Base de Datos:** Azure SQL Database (Producción) / SQL Server (Local)
 * **ORM:** Entity Framework Core
-* **Base de Datos:** [SQL Server / PostgreSQL / MySQL]
-* **Mapeo:** AutoMapper
-* **Validación:** FluentValidation
-* **Inyección de Dependencias:** Contenedor nativo de .NET
-* **Arquitectura:** [Clean Architecture / N-Capas / Vertical Slice]
+* **Cloud Hosting:** Azure App Service
+* **CI/CD:** GitHub Actions (Despliegue automatizado)
+* **Documentación:** Swagger UI (OpenAPI)
+* **Seguridad:** JWT (JSON Web Tokens)
 
-## 📋 Prerrequisitos
+## 🚀 Funcionalidades Principales
 
-Antes de comenzar, asegúrate de tener instalado:
-
-* [.NET SDK [8.0]](https://dotnet.microsoft.com/download)
-* [SQL Server] (o tu motor de base de datos preferido)
-* Un editor de código como Visual Studio 2022 o VS Code.
-
-## 🔧 Configuración e Instalación
-
-1.  **Clonar el repositorio:**
-    ```bash
-    git clone [https://github.com/](https://github.com/)[tu-usuario]/[tu-repo].git
-    cd [nombre-carpeta]
-    ```
-
-2.  **Configurar variables de entorno:**
-    Renombra el archivo `appsettings.Example.json` a `appsettings.json` y configura tu cadena de conexión y llave JWT:
-
-    ```json
-    "ConnectionStrings": {
-      "DefaultConnection": "Server=...;Database=EcommerceDb;User Id=...;Password=..."
-    },
-    "Jwt": {
-      "Key": "Tu_Clave_Secreta_Super_Segura_Aqui",
-      "Issuer": "...",
-      "Audience": "..."
-    }
-    ```
-
-3.  **Restaurar paquetes y base de datos:**
-    Ejecuta las migraciones de Entity Framework para crear la base de datos:
-
-    ```bash
-    dotnet restore
-    dotnet ef database update
-    ```
-
-4.  **Ejecutar la aplicación:**
-    ```bash
-    dotnet run
-    ```
-    La API estará disponible en `https://localhost:[puerto]`.
+* 🔐 **Autenticación y Seguridad:** Login, Registro y protección de rutas mediante JWT.
+* 📦 **Gestión de Productos:** CRUD completo con validaciones de negocio.
+* 🛒 **Carrito de Compras:** Lógica para persistencia y manipulación del carrito.
+* 📄 **Paginación Inteligente:** Endpoints optimizados para listar grandes volúmenes de datos.
+* ☁️ **Cloud Native:** Configuración mediante Variables de Entorno y Secretos para entornos de nube.
 
 ## 📖 Documentación de la API
 
-Una vez que la aplicación esté corriendo, puedes acceder a la documentación interactiva de Swagger en:
+La API cuenta con Swagger habilitado en producción para facilitar la revisión técnica y pruebas de integración.
 
-`https://localhost:[puerto]/swagger/index.html`
-
-### Endpoints Principales (Ejemplos)
-
-| Método | Endpoint | Descripción | Acceso |
+| Método | Endpoint (Ejemplo) | Descripción | Nivel de Acceso |
 | :--- | :--- | :--- | :--- |
-| `POST` | `/api/auth/login` | Iniciar sesión y obtener token | Público |
-| `GET` | `/api/products` | Listar todos los productos | Público |
-| `POST` | `/api/products` | Crear un nuevo producto | Admin |
-| `POST` | `/api/orders` | Crear una orden de compra | Usuario Auth |
+| `POST` | `/api/auth/login` | Obtener Token JWT | Público |
+| `GET` | `/api/products` | Listar productos paginados | Público |
+| `GET` | `/api/products/{id}` | Detalle de producto | Público |
+| `POST` | `/api/orders` | Crear orden de compra | Usuario Autenticado |
 
-## 📂 Estructura del Proyecto
+👉 **[Ver Documentación Completa en Swagger](https://apiecommercev1-d2bee5hpchghavcy.canadacentral-01.azurewebsites.net/swagger/index.html)**
 
-El proyecto sigue una arquitectura [Clean Architecture] organizada de la siguiente manera:
+---
 
-* `src/Core`: Entidades del dominio e interfaces.
-* `src/Application`: Casos de uso, DTOs, validaciones y servicios.
-* `src/Infrastructure`: Implementación de acceso a datos (EF Core), repositorios y servicios externos.
-* `src/API`: Controladores y configuración de inicio.
+## 🔧 Configuración para Desarrollo Local
 
-## 🤝 Contribución
+Si deseas clonar y ejecutar este proyecto en tu máquina local:
 
-¡Las contribuciones son bienvenidas! Por favor, sigue estos pasos:
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone [https://github.com/](https://github.com/)[TU-USUARIO-GITHUB]/[NOMBRE-DE-TU-REPO].git
+    ```
 
-1.  Haz un Fork del proyecto.
-2.  Crea una rama para tu feature (`git checkout -b feature/Amazing
+2.  **Configurar Base de Datos:**
+    Modifica el archivo `appsettings.json` con tu cadena de conexión local:
+    ```json
+    "ConnectionStrings": {
+      "DefaultConnection": "Server=localhost;Database=EcommerceDb;Trusted_Connection=True;TrustServerCertificate=True;"
+    }
+    ```
 
+3.  **Aplicar Migraciones:**
+    ```bash
+    dotnet ef database update
+    ```
 
+4.  **Ejecutar la API:**
+    ```bash
+    dotnet run
+    ```
+    Accede a `https://apiecommercev1-d2bee5hpchghavcy.canadacentral-01.azurewebsites.net/swagger/index.html` (o el puerto que te indique la consola).
+
+---
+
+## 👤 Autor
+
+**[TU NOMBRE AQUI]**
+*Full Stack Developer | .NET & React Enthusiast*
+
+* 💼 [LinkedIn](www.linkedin.com/in/gustavotcruz-dev)
+* 🌐 [Portafolio / Website](https://trejodev24.vercel.app/)
+
+---
+*Desarrollado con ❤️ y C#*
