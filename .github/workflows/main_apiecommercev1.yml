@@ -55,7 +55,7 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
 
-     
+      # 🔥 AQUÍ SE INYECTAN LAS VARIABLES
       - name: Set App Settings and Connection String
         uses: azure/CLI@v2
         with:
