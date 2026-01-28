@@ -51,10 +51,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
-
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_0677D396DF82470A9A8CD7EEFF5F0F3A }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_940C0C84E0714E5D8761DF9F301BDB1C }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F4524AEFC2F54C8A83C3F654A72E4A40 }}
       # 🔥 AQUÍ SE INYECTAN LAS VARIABLES
       - name: Set App Settings and Connection String
         uses: azure/CLI@v2
