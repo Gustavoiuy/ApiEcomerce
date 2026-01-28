@@ -1,0 +1,10 @@
+using System;
+
+namespace Application.Dtos;
+
+public class UserLogginResponseDto
+{
+    public UserDataDto? User { get; set; }
+    public string? Token { get; set; }
+    public string? Message { get; set; }
+}
