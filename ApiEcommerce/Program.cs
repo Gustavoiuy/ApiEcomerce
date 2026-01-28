@@ -189,11 +189,7 @@ app.UseSwaggerUI(options =>
       options.SwaggerEndpoint("/swagger/v2/swagger.json", "v2");
   });
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
 
-
-}
 
 app.UseStaticFiles();
 
