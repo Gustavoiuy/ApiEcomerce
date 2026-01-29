@@ -1,0 +1,20 @@
+## Directorios de compilación y salida (Limpieza)
+**/bin/
+**/obj/
+**/publish/
+
+## Visual Studio y VS Code
+.vs/
+.vscode/
+*.user
+*.suo
+
+## --- SEGURIDAD: Ignorar archivos de configuración ---
+## Esto evitará que tus claves y cadenas de conexión suban a GitHub
+**/appsettings.json
+**/appsettings.Development.json
+**/appsettings.Production.json
+
+## Otros archivos sensibles
+.env
+/ApiEcommerce/Properties/launchSettings.json

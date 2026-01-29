@@ -18,17 +18,23 @@ using Asp.Versioning;
 
 var builder = WebApplication.CreateBuilder(args);
 var dbConnectionString = builder.Configuration.GetConnectionString("ConexionSql");
+if (string.IsNullOrWhiteSpace(dbConnectionString))
+{
+    throw new Exception("❌ ConexionSql NO fue cargada desde Azure App Settings");
+}
 // Add services to the container.
+
+
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
   options.UseSqlServer(dbConnectionString)
   .UseSeeding((context, _) =>
-  {
-      var appContext = (ApplicationDbContext)context;
-      DataSeeder.SeedData(appContext);
-      appContext.SaveChanges();
-  })
-);
+   {
+       var appContext = (ApplicationDbContext)context;
+       DataSeeder.SeedData(appContext);
+       appContext.SaveChanges();
+   })
+ );
 builder.Services.AddResponseCaching(options =>
 {
     options.MaximumBodySize = 1024 * 1024;
@@ -185,11 +191,7 @@ app.UseSwaggerUI(options =>
       options.SwaggerEndpoint("/swagger/v2/swagger.json", "v2");
   });
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
 
-
-}
 
 app.UseStaticFiles();
 

@@ -74,7 +74,7 @@ namespace ApiEcommerce.Controllers
             var totalPages = (int)Math.Ceiling((double)totalProducts / pageSize);
             if (pageNumber > totalPages)
             {
-                return NotFound("No hay más páginas disponibles");
+                return NotFound("No hay más páginas disponibles por el momento intente mas tarde");
             }
             var products = await _productRepository.GetProductsInPagesAsync(pageNumber, pageSize);
             var productDto = products.Adapt<List<ProductDto>>();
