@@ -14,7 +14,3 @@
 **/appsettings.json
 **/appsettings.Development.json
 **/appsettings.Production.json
-
-## Otros archivos sensibles
-.env
-/ApiEcommerce/Properties/launchSettings.json
