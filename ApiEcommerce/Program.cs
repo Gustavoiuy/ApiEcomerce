@@ -17,7 +17,7 @@ using Asp.Versioning;
 
 
 var builder = WebApplication.CreateBuilder(args);
-var dbConnectionString = builder.Configuration.GetConnectionString("ConexionSql");
+var dbConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 if (string.IsNullOrWhiteSpace(dbConnectionString))
 {
     throw new Exception("❌ ConexionSql NO fue cargada desde Azure App Settings");
