@@ -11,6 +11,6 @@
 
 ## --- SEGURIDAD: Ignorar archivos de configuración ---
 ## Esto evitará que tus claves y cadenas de conexión suban a GitHub
-**/appsettings.json
+
 **/appsettings.Development.json
 **/appsettings.Production.json
