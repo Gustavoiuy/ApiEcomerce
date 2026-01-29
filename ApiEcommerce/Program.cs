@@ -18,6 +18,10 @@ using Asp.Versioning;
 
 var builder = WebApplication.CreateBuilder(args);
 var dbConnectionString = builder.Configuration.GetConnectionString("ConexionSql");
+if (string.IsNullOrEmpty(dbConnectionString))
+{
+    throw new Exception("ConexionSql NO fue cargada desde Azure");
+}
 // Add services to the container.
 
 
