@@ -22,18 +22,16 @@ var dbConnectionString = builder.Configuration.GetConnectionString("ConexionSql"
 // Add services to the container.
 
 
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(dbConnectionString)
-);
-// builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//   options.UseSqlServer(dbConnectionString)
-//   .UseSeeding((context, _) =>
-//   {
-//       var appContext = (ApplicationDbContext)context;
-//       DataSeeder.SeedData(appContext);
-//       appContext.SaveChanges();
-//   })
-// );
+  options.UseSqlServer(dbConnectionString)
+  .UseSeeding((context, _) =>
+   {
+       var appContext = (ApplicationDbContext)context;
+       DataSeeder.SeedData(appContext);
+       appContext.SaveChanges();
+   })
+ );
 builder.Services.AddResponseCaching(options =>
 {
     options.MaximumBodySize = 1024 * 1024;
