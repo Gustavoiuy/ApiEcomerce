@@ -24,5 +24,8 @@ public static class MapsterConfig
         config.NewConfig<Users, UserLogginResponseDto>().TwoWays();
         config.NewConfig<ApplicationUser, UserDataDto>().TwoWays();
         config.NewConfig<ApplicationUser, UserDto>().TwoWays();
+
+        config.NewConfig<Reservation, ReservationDto>().TwoWays();
+        config.NewConfig<Reservation, CreateReservationDto>().TwoWays();
     }
 }
