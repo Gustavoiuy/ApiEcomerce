@@ -44,21 +44,21 @@ namespace ApiEcommerce.Controllers
         }
 
 
-        [HttpDelete("{productId:int}", Name = "DeleteProduct")]
+        [HttpDelete("{reservationId:int}", Name = "DeleteReservation")]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> DeleteProduct(int productId)
+        public async Task<IActionResult> DeleteReservation(int reservationId)
         {
-            if (productId == 0)
+            if (reservationId == 0)
             {
                 return BadRequest(ModelState);
             }
-            var reservation = await _reservationRepository.GetByIdAsync(productId);
+            var reservation = await _reservationRepository.GetByIdAsync(reservationId);
             if (reservation == null)
             {
-                return NotFound($"La reserva con el id {productId} no existe");
+                return NotFound($"La reserva con el id {reservationId} no existe");
             }
             await _reservationRepository.DeleteAsync(reservation);
             return NoContent();
