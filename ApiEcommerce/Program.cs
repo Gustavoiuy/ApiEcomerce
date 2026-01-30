@@ -45,6 +45,7 @@ builder.Services.AddResponseCaching(options =>
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 builder.Services.AddSingleton(TypeAdapterConfig.GlobalSettings);
 MapsterConfig.RegisterMappings(TypeAdapterConfig.GlobalSettings);
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
